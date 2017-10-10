@@ -1,0 +1,20 @@
+@font-face {
+  font-family: pacifico;
+  src: url("../fonts/pacifico/pacifico.ttf");
+}
+
+.material-icons {
+  font-size: 36px;
+}
+
+.side-nav .material-icons {
+  font-size: 24px;
+}
+
+.logo {
+  font-family: pacifico;
+}
+
+.p-delete {
+  font-size: 24px;
+}
