@@ -5,29 +5,34 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-// -------------------------------------------
+// routing
+const index = require('./routes/index');
+const table = require('./routes/table');
+const kitchen = require('./routes/kitchen');
+const admin = require('./routes/admin');
 
-// Put routers here
-
-// -------------------------------------------
-
+// session
 app.use(session({
   secret: 'mass-session',
   resave: false,
   saveUninitialized: true
 }));
 
+// session flash
 app.use(flash());
 
+// body parser
 app.use(bodyParser.urlencoded( { extended: false } ));
 app.use(bodyParser.json());
 
+// set view engine to ejs
 app.set('view engine', 'ejs');
 
-// -------------------------------------------
+// routing
+app.use('/', index);
+app.use('/table', table);
+app.use('/kitchen', kitchen);
+app.use('/admin', admin);
 
-// Put routing here
-
-// -------------------------------------------
-
+// listening on environment port or 3000
 app.listen(process.env.PORT || '3000');
