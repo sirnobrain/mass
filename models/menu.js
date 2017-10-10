@@ -34,5 +34,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN
     }
   });
+
+  Menu.associate = function(models) {
+
+    Menu.hasMany(models.Order);
+    Menu.belongsToMany(models.Table, { through: 'Order' });
+
+  }
+
   return Menu;
 };

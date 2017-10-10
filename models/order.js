@@ -7,5 +7,13 @@ module.exports = (sequelize, DataTypes) => {
     batch: DataTypes.STRING,
     isReady: DataTypes.BOOLEAN
   });
+
+  Order.associate = function(models) {
+
+    Order.belongsTo(models.Table, { onDelete: 'restrict' });
+    Order.belongsTo(models.Menu, { onDelete: 'restrict' });
+
+  }
+
   return Order;
 };
