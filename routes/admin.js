@@ -3,7 +3,18 @@ const router = express.router();
 const Admin = require('./../controllers/admin');
 
 router.get('/', (req, res) => {
+	// cek udah login atau belum
+	// kalo udah login, jangan tampilkan form login
+	// kalau belum, tampilkan form login
 	Admin.showDashboard(req, res);
+});
+
+router.post('/', (req, res) => {
+	Admin.login(req, res);
+});
+
+router.logout('/logout', (req, res) => {
+	Admin.logout(req, res);
 });
 
 router.get('/users', (req, res) => {
