@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     isAvailable: {
-      DataTypes.BOOLEAN
+      type: DataTypes.BOOLEAN
     }
   });
   return Menu;

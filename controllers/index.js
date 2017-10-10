@@ -1,11 +1,11 @@
-const Table = require('./../models/table');
+const Model = require('./../models');
 
 class Index {
 	// query available tables and send the result to view
 	static showAvailableTables(req, res) {
 		const options = {where: {isEmpty: true}};
 
-		Table.findAll(options)
+		Model.Table.findAll(options)
 		.then(emptyTables => {
 			const viewData = {
 				data: emptyTables,
