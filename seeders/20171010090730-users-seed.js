@@ -7,7 +7,7 @@ module.exports = {
       {
         username: 'dimitri',
         password: '$2a$08$QbVG4M8CB.9qvBb/mSqvqucC.ZvvRqZwYeRvytDfjtX4vW/n1A9OK',
-        role: 'manager',
+        role: 'superadmin',
         createdAt: new Date(),
         updatedAt: new Date()
       }
