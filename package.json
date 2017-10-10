@@ -1,0 +1,32 @@
+{
+  "name": "mass",
+  "version": "1.0.0",
+  "description": "Massive advanced slim service for restaurants",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deathmitri/mass.git"
+  },
+  "author": "Bambang Kurniawan, Dimitri Wahyudiputra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deathmitri/mass/issues"
+  },
+  "homepage": "https://github.com/deathmitri/mass#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-flash": "0.0.2",
+    "express-session": "^1.15.6",
+    "pg": "^7.3.0",
+    "sequelize": "^4.13.8",
+    "sequelize-cli": "^3.0.0"
+  }
+}
