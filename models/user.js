@@ -7,7 +7,9 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: {
           msg: 'Validation Error: Username is required'
         },
-        len: [6, 20]
+        isAlphanumeric: {
+          msg: 'Validation Error: Username can only contain alphanumeric'
+        }
       },
       unique: {
         args: true,
@@ -19,6 +21,10 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           msg: 'Validation Error: Password is required'
+        },
+        len: {
+          args: [6, 20],
+          msg: 'Validation Error: Password must have 6-20 characters'
         }
       }
     },
