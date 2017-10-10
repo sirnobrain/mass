@@ -1,2 +1,2 @@
 # MASS
-Massive advanced slim service for restaurants
+Massive advanced slim service for restaurants.
