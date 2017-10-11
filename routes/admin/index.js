@@ -5,10 +5,12 @@ const AdminController = require('../../controllers/admin/index');
 const menus = require('./menus');
 const tables = require('./tables');
 const users = require('./users');
+const report = require('./report');
 
 router.use('/menus', menus);
 router.use('/tables', tables);
 router.use('/users', users);
+router.use('/report', report);
 
 router.get('/', (req, res) => {
 	AdminController.index(req, res);
