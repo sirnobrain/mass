@@ -1,3 +1,11 @@
-<div>
-	<h1>Hello</h1>
-</div>
+	<div clas="main-container">
+		<div id="table-availability-wrapper">
+			<div id="table-availability">
+					<%viewData.data.forEach(table => {%>
+					<a class="table-button" href="/<%=table.id%>">
+						<%=table.tableNumber%>
+					</a>
+					<%})%>
+			</div>
+		</div>
+	</div>

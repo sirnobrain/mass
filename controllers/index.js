@@ -13,7 +13,7 @@ class Index {
 				session: req.sessionRole
 			};
 
-			res.render('index', viewData);
+			res.render('index', {viewData});
 		})
 		.catch(err => {
 			if (err) throw err;
