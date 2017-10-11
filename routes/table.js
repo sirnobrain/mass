@@ -12,7 +12,6 @@ router.get('/:id/menu', (req, res) => {
 });
 
 router.post('/:id/menu', (req, res) => {
-	console.log('yihaw');
 	// render billing via modal/dialog box
 	// button pay pada modal trigger router ini
 	// untuk create order

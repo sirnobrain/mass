@@ -1,0 +1,32 @@
+<%- include('templates/header.ejs') %>
+<div class="main-container">
+	<div id="kitchen-wrapper">
+		
+		<% for (let batch in viewData.data.orders) { %>
+		<div calss="batch-wrapper">
+			<%=viewData.data.orders[batch][0].Table.tableNumber%>
+			<%=batch%>
+			<br>
+			<% viewData.data.orders[batch].forEach(order => { %>
+				<%=order.Menu.name%>
+				<%=order.quantity%>
+				<hr>
+			<% }) %>
+			<%=viewData.data.orders[batch][0].note%>
+			<form action="/kitchen" method="POST">
+				<input type="hidden" name="batch" value="<%=batch%>">
+				<input type="submit" value="ORDER READY">
+			</form>
+			<h1>==================================</h1>
+		</div>
+		<% } %>
+	</div>
+</div>
+<script type="text/javascript">
+// document.addEventListener('DOMContentLoaded', function(){
+// 	setTimeout(function(){
+//   	window.location.reload(1);
+// 	}, 1000);
+// }, false);
+</script>
+<%- include('templates/footer.ejs') %>
