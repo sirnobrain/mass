@@ -42,16 +42,17 @@ class Table {
 		const batch = Date.now();
 		const note = req.body.note;
 		const records = [];
-
-		for (let MenuId in reqBody) {
-			if (reqBody[MenuId] > 0 && reqBody !== 'note') {
+		console.log(req.body);
+		for (let prop in reqBody) {
+			if (reqBody[prop] > 0 && prop !== 'note') {
 				let record = {
 					TableId: tableId,
-					MenuId: MenuId,
+					MenuId: prop.split('-')[0],
+					pricePaid: prop.split('-')[1],
 					note: note,
 					batch: batch,
 					isReady: false,
-					quantity: reqBody[MenuId],
+					quantity: reqBody[prop],
 					createdAt: new Date(),
 					updatedAt: new Date()
 				}

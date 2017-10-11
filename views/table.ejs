@@ -15,7 +15,8 @@
 						<tr>
 							<td><%= menu.name %></td>
 							<td><%= menu.price %></td>
-							<td><input type="number" name="<%= menu.id %>" min="0" max="100"></td>
+							<!-- quick fix to get pricePaid -->
+							<td><input type="number" name="<%= menu.id + '-' + menu.price %>" min="0" max="100"></td>
 						</tr>
 					<%})%>
 				</tbody>

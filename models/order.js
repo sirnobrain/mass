@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     note: DataTypes.STRING,
     batch: DataTypes.STRING,
     isReady: DataTypes.BOOLEAN,
-    quantity: DataTypes.INTEGER
+    quantity: DataTypes.INTEGER,
+    pricePaid: DataTypes.FLOAT
   });
 
   Order.associate = function(models) {
