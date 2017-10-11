@@ -10,48 +10,80 @@
   <div class="container">
     <div class="row">
       <div class="col l12 m12 s12">
-        <h1>Menus</h1>
-        <a href="/admin/menus/add" class="waves-effect waves-light btn">Add a Menu</a>
-        <br><br>
         <% include ../partials/success %>
-        <table class="responsive-table striped bordered">
-          <thead>
-            <tr>
-              <th>No.</th>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Availability</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% menus.forEach((menu, index) => { %>
-
+        <div class="card material-table">
+          <div class="table-header">
+            <span class="table-title">Menus</span>
+            <div class="actions">
+              <a href="/admin/menus/add" class="waves-effect btn-flat nopadding"><i class="material-icons">add</i></a>
+              <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
+            </div>
+          </div>
+          <table id="menu-datatable" class="responsive-table striped bordered">
+            <thead>
               <tr>
-                <td><%= index + 1 %></td>
-                <td><%= menu.name %></td>
-                <td><%= menu.description || '-' %></td>
-                <td>
-                  <span class="<%= menu.isAvailable ? 'teal-text' : 'red-text' %>">
-                    <%= menu.isAvailable ? 'Available' : 'Unavailable' %>
-                  </span>
-                </td>
-                <td>IDR <span class="numeric"><%= menu.price %></span></td>
-                <td>
-                  <a href="/admin/menus/<%= menu.id %>/edit" class="waves-effect waves-light btn amber darken-3"><i class="material-icons">create</i></a>
-                  <a href="/admin/menus/<%= menu.id %>/delete" class="waves-effect waves-light btn red darken-3"><i class="material-icons">delete</i></a>
-                </td>
+                <th width="75">No.</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Availability</th>
+                <th>Price</th>
+                <th>Actions</th>
               </tr>
+            </thead>
+            <tbody>
+              <% menus.forEach((menu, index) => { %>
 
-            <% }) %>
-          </tbody>
-        </table>
+                <tr>
+                  <td><%= index + 1 %></td>
+                  <td><%= menu.name %></td>
+                  <td><%= menu.description || '-' %></td>
+                  <td>
+                    <span class="<%= menu.isAvailable ? 'teal-text' : 'red-text' %>">
+                      <%= menu.isAvailable ? 'Available' : 'Unavailable' %>
+                    </span>
+                  </td>
+                  <td>IDR <span class="numeric"><%= menu.price %></span></td>
+                  <td>
+                    <a href="/admin/menus/<%= menu.id %>/edit" class="waves-effect waves-light btn amber darken-3"><i class="material-icons">create</i></a>
+                    <a href="/admin/menus/<%= menu.id %>/delete" class="waves-effect waves-light btn red darken-3"><i class="material-icons">delete</i></a>
+                  </td>
+                </tr>
+
+              <% }) %>
+            </tbody>
+          </table>
+
+        </div>
       </div>
     </div>
   </div>
 
   <% include ../partials/scripts %>
   <% include ../partials/numeric %>
+  <% include ../partials/datatable-scripts %>
+
+  <script>
+    $(document).ready(function() {
+      $('#menu-datatable').dataTable({
+        "oLanguage": {
+          "sStripClasses": "",
+          "sSearch": "",
+          "sSearchPlaceholder": "Enter Keywords Here",
+          "sInfo": "_START_ -_END_ of _TOTAL_",
+          "sLengthMenu": '<span>Rows per page:</span><select class="browser-default">' +
+            '<option value="10">10</option>' +
+            '<option value="20">20</option>' +
+            '<option value="30">30</option>' +
+            '<option value="40">40</option>' +
+            '<option value="50">50</option>' +
+            '<option value="-1">All</option>' +
+            '</select></div>'
+        },
+        bAutoWidth: false
+      });
+    });
+
+  </script>
 
 </body>
 </html>
