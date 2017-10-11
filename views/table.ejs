@@ -1,3 +1,4 @@
+<%- include('templates/header.ejs') %>
 <div class="main-container">
 	<div id="order-wrapper">
 		<form action="/table/<%=viewData.data.tableId%>/menu" method="POST">
@@ -29,3 +30,5 @@
 		</form>
 	</div>
 </div>
+
+<%- include('templates/footer.ejs') %>

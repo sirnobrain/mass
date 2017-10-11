@@ -46,7 +46,7 @@ class Table {
 		for (let MenuId in reqBody) {
 			if (reqBody[MenuId] > 0 && reqBody !== 'note') {
 				let record = {
-					Tableid: tableId,
+					TableId: tableId,
 					MenuId: MenuId,
 					note: note,
 					batch: batch,
@@ -59,7 +59,7 @@ class Table {
 			}
 		}
 
-		Model.Menu.bulkCreate(records)
+		Model.Order.bulkCreate(records)
 		.then(() => {
 			const redirectTo = `/table/${tableId}/wait`;
 

@@ -4,12 +4,12 @@ const Kitchen = require('./../controllers/kitchen');
 
 router.get('/', (req, res) => {
 	// query active orders and display it on kitchen screen
-	Kitchen.showActiveOrders();
+	Kitchen.showActiveOrders(req, res);
 });
 
 router.post('/', (req, res) => {
 	// update batch status after food ready
-	Kitchen.updateBatchStatus();
+	Kitchen.updateBatchStatus(req, res);
 });
 
 module.exports = router;
