@@ -17,7 +17,7 @@ router.post('/:id', (req, res) => {
 router.get('/:id/wait', (req, res) => {
 	// tampilkan halaman tunggu
 	// opsi [leave, order again => /]
-	Table.showWaitPage(req, res);
+	Table.wait(req, res);
 });
 
 router.get('/:id/leave', (req, res) => {
