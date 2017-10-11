@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const UserController = require('../../controllers/admin/user');
+const authMiddleware = require('../../helpers/authMiddleware');
+
+router.use((req, res, next) => {
+  authMiddleware('users', req, res, next);
+})
 
 router.get('/', (req, res) => {
   UserController.index(req, res);

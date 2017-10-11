@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const MenuController = require('../../controllers/admin/menu');
+const authMiddleware = require('../../helpers/authMiddleware');
+
+router.use((req, res, next) => {
+  authMiddleware('menus', req, res, next);
+})
 
 router.get('/', (req, res) => {
   MenuController.index(req, res);

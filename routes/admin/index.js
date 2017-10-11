@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const AdminController = require('../../controllers/admin/index');
 
+const authenticate = require('../../helpers/authenticate');
+
 const menus = require('./menus');
 const tables = require('./tables');
 const users = require('./users');
@@ -13,7 +15,10 @@ router.use('/users', users);
 router.use('/report', report);
 
 router.get('/', (req, res) => {
-	AdminController.index(req, res);
+  if (authenticate(req.session))
+	 AdminController.index(req, res);
+  else
+    res.redirect('/admin/login');
 });
 
 router.get('/login', (req, res) => {

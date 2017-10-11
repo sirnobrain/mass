@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const TableController = require('../../controllers/admin/table');
+const authMiddleware = require('../../helpers/authMiddleware');
+
+router.use((req, res, next) => {
+  authMiddleware('tables', req, res, next);
+})
 
 router.get('/', (req, res) => {
   TableController.index(req, res);
