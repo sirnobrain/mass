@@ -1,0 +1,31 @@
+<div class="main-container">
+	<div id="order-wrapper">
+		<form action="/table/<%=viewData.data.tableId%>" method="POST">
+			<table>
+				<thead>
+					<tr>
+						<th>Menu</th>
+						<th>Price</th>
+						<th>Qty</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%viewData.data.availableMenus.forEach(menu => {%>
+						<tr>
+							<td><%= menu.name %></td>
+							<td><%= menu.price %></td>
+							<td><input type="number" name="<%= menu.id %>" min="0" max="100"></td>
+						</tr>
+					<%})%>
+				</tbody>
+			</table>
+			<br>
+			<br>
+			Note
+			<input type="text" name="note">
+			<br>
+			<br>
+			<input type="submit" value="Order">
+		</form>
+	</div>
+</div>

@@ -1,8 +1,9 @@
 	<div clas="main-container">
 		<div id="table-availability-wrapper">
+			Select table
 			<div id="table-availability">
 					<%viewData.data.forEach(table => {%>
-					<a class="table-button" href="/<%=table.id%>">
+					<a class="table-button" href="/table/<%=table.id%>">
 						<%=table.tableNumber%>
 					</a>
 					<%})%>

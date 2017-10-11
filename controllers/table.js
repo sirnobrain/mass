@@ -4,11 +4,15 @@ class Table {
 	// display all available menus
 	static showMenu(req, res) {
 		const options = {where: {isAvailable: true}};
+		const tableId = req.params.id;
 
 		Model.Menu.findAll(options)
 		.then(availableMenus => {
 			const viewData = {
-				data: availableMenus,
+				data: {
+					availableMenus,
+					tableId
+				},
 				err: null,
 				session: null /* selama belum ada session set to null, kalo udah req.sessionRole*/
 			};
@@ -31,10 +35,11 @@ class Table {
 			if (reqBody[MenuId] > 0 && reqBody !== 'note') {
 				let record = {
 					Tableid: tableId,
-					MenuId: reqBody[MenuId],
+					MenuId: MenuId,
 					note: note,
 					batch: batch,
 					isReady: false,
+					quantity: reqBody[MenuId],
 					createdAt: new Date(),
 					updatedAt: new Date()
 				}
@@ -42,15 +47,18 @@ class Table {
 			}
 		}
 
-		Model.Menu.bulkCreate(records)
-		.then(() => {
-			const redirectTo = `/${tableId}/table-wait`;
+		console.log(records);
+		res.redirect('/');
 
-			res.redirect(redirectTo);
-		})
-		.catch(err => {
-			if (err) throw err;
-		});
+		// Model.Menu.bulkCreate(records)
+		// .then(() => {
+		// 	const redirectTo = `/${tableId}/table-wait`;
+
+		// 	res.redirect(redirectTo);
+		// })
+		// .catch(err => {
+		// 	if (err) throw err;
+		// });
 	}
 
 	static wait(req, res) {
