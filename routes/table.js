@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.router();
+const router = express.Router();
 const Table = require('./../controllers/table');
 
 router.get('/:id', (req, res) => {

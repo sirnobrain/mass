@@ -9,7 +9,7 @@ const app = express();
 const index = require('./routes/index');
 const table = require('./routes/table');
 const kitchen = require('./routes/kitchen');
-const admin = require('./routes/admin');
+const admin = require('./routes/admin/index');
 
 // session
 app.use(session({
@@ -24,6 +24,9 @@ app.use(flash());
 // body parser
 app.use(bodyParser.urlencoded( { extended: false } ));
 app.use(bodyParser.json());
+
+// public folder
+app.use('/public', express.static(__dirname + '/public/'));
 
 // set view engine to ejs
 app.set('view engine', 'ejs');

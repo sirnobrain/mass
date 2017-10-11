@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head-content %>
+</head>
+<body>
+
+  <% include ../partials/navigation %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col l12 m12 s12">
+        <h1>Menus</h1>
+        <a href="/admin/menus/add" class="waves-effect waves-light btn">Add a Menu</a>
+        <br><br>
+        <% include ../partials/success %>
+        <table class="responsive-table striped bordered">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Availability</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% menus.forEach((menu, index) => { %>
+
+              <tr>
+                <td><%= index + 1 %></td>
+                <td><%= menu.name %></td>
+                <td><%= menu.description || '-' %></td>
+                <td>
+                  <span class="<%= menu.isAvailable ? 'teal-text' : 'red-text' %>">
+                    <%= menu.isAvailable ? 'Available' : 'Unavailable' %>
+                  </span>
+                </td>
+                <td>IDR <%= menu.price %></td>
+                <td>
+                  <a href="/admin/menus/<%= menu.id %>/edit" class="waves-effect waves-light btn amber darken-3"><i class="material-icons">create</i></a>
+                  <a href="/admin/menus/<%= menu.id %>/delete" class="waves-effect waves-light btn red darken-3"><i class="material-icons">delete</i></a>
+                </td>
+              </tr>
+
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <% include ../partials/scripts %>
+
+</body>
+</html>

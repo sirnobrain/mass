@@ -27,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
         },
         isFloat: {
           msg: 'Validation Error: Price is not valid'
+        },
+        min: {
+          args: 100,
+          msg: 'Validation Error: Minimal Price is 100'
         }
       }
     },
