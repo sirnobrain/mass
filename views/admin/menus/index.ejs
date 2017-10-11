@@ -36,7 +36,7 @@
                     <%= menu.isAvailable ? 'Available' : 'Unavailable' %>
                   </span>
                 </td>
-                <td>IDR <%= menu.price %></td>
+                <td>IDR <span class="numeric"><%= menu.price %></span></td>
                 <td>
                   <a href="/admin/menus/<%= menu.id %>/edit" class="waves-effect waves-light btn amber darken-3"><i class="material-icons">create</i></a>
                   <a href="/admin/menus/<%= menu.id %>/delete" class="waves-effect waves-light btn red darken-3"><i class="material-icons">delete</i></a>
@@ -51,6 +51,7 @@
   </div>
 
   <% include ../partials/scripts %>
+  <% include ../partials/numeric %>
 
 </body>
 </html>

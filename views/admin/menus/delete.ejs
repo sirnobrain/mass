@@ -14,7 +14,7 @@
         <h1>Delete this Menu?</h1>
 
         <% include ../partials/errors %>
-        
+
         <form action="/admin/menus/<%= menu.id %>/delete" method="post">
 
           <p class="p-delete">
@@ -23,11 +23,11 @@
           </p>
           <p class="p-delete">
             Description:<br>
-            <strong><%= menu.description %></strong>
+            <strong><%= menu.description || '-' %></strong>
           </p>
           <p class="p-delete">
             Price:<br>
-            <strong><%= menu.price %></strong>
+            <strong>IDR <span class="numeric"><%= menu.price %></span></strong>
           </p>
 
           <br>
@@ -47,6 +47,7 @@
 
 
   <% include ../partials/scripts %>
+  <% include ../partials/numeric %>
 
 </body>
 </html>
