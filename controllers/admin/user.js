@@ -6,7 +6,8 @@ class UserController {
 
     Model.User.all({
 
-      order: [ [ 'username', 'ASC' ] ]
+      order: [ [ 'username', 'ASC' ] ],
+      where: { id: { $ne: req.session.userId } }
 
     }).then((users) => {
 
