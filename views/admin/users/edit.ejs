@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head-content %>
+</head>
+<body>
+
+  <% include ../partials/navigation %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col l12 m12 s12">
+
+        <h1>Add a User</h1>
+
+        <% include ../partials/errors %>
+
+        <form action="/admin/users/<%= user.id %>/edit" method="post">
+
+          <div class="row">
+            <div class="input-field col s12 m12 l6">
+              <input id="username" name="username" type="text" autocomplete="off" value="<%= user.username %>" autofocus>
+              <label for="username">Username</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s6">
+              <select name="role" id="role">
+                <option value="">- Choose the Role- </option>
+                <option value="manager" <%= user.role === 'manager' ? 'selected' : ''  %>>Manager</option>
+                <option value="chef" <%= user.role === 'chef' ? 'selected' : '' %>>Chef</option>
+              </select>
+              <label>Role</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12 m12 l6">
+              <button type="submit" class="waves-effect waves-light btn">Submit</button>
+              <a href="/admin/users" class="waves-effect waves-light btn white black-text">Cancel</a>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <% include ../partials/scripts %>
+
+</body>
+</html>

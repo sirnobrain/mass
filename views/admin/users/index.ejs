@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head-content %>
+</head>
+<body>
+
+  <% include ../partials/navigation %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col l12 m12 s12">
+        <h1>Users</h1>
+        <a href="/admin/users/add" class="waves-effect waves-light btn">Add a User</a>
+        <br><br>
+        <% include ../partials/success %>
+        <table class="responsive-table striped bordered">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Username</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% users.forEach((user, index) => { %>
+
+              <tr>
+                <td><%= index + 1 %></td>
+                <td><%= user.username %></td>
+                <td><%= user.role %></td>
+                <td>
+                  <a href="/admin/users/<%= user.id %>/edit" class="waves-effect waves-light btn amber darken-3"><i class="material-icons">create</i></a>
+                  <a href="/admin/users/<%= user.id %>/delete" class="waves-effect waves-light btn red darken-3"><i class="material-icons">delete</i></a>
+                </td>
+              </tr>
+
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <% include ../partials/scripts %>
+
+</body>
+</html>
