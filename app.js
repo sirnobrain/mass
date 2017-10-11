@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/table', table);
 app.use('/kitchen', kitchen);
-// app.use('/admin', admin);
+app.use('/admin', admin);
 
 // listening on environment port or 3000
 app.listen(process.env.PORT || '3000');
