@@ -3,8 +3,10 @@ const router = express.Router();
 const AdminController = require('../../controllers/admin/index');
 
 const menus = require('./menus');
+const tables = require('./tables');
 
 router.use('/menus', menus);
+router.use('/tables', tables);
 
 router.get('/', (req, res) => {
 	AdminController.index(req, res);

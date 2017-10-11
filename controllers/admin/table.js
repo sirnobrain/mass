@@ -6,7 +6,7 @@ class TableController {
 
     Model.Table.all({
 
-      order: [ [ 'createdAt', 'DESC' ] ]
+      order: [ [ 'createdAt', 'DESC' ], [ 'updatedAt', 'DESC' ] ]
 
     }).then((tables) => {
 
@@ -33,11 +33,14 @@ class TableController {
 
     Model.Table.create({
 
-      tableNumber: req.body.tableNumber
+      tableNumber: req.body.tableNumber,
+      isEmpty: true
 
     }).then(() => {
 
       req.flash('success', 'Table successfully created.');
+
+      res.redirect('/admin/tables');
 
     }).catch((err) => {
 
@@ -81,7 +84,8 @@ class TableController {
 
         Model.Table.update(
           {
-            tableNumber: req.body.tableNumber
+            tableNumber: req.body.tableNumber,
+            isEmpty: req.body.isEmpty || false
           },
           {
             where: { id: req.params.id }

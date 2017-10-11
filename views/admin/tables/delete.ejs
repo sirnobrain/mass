@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head-content %>
+</head>
+<body>
+
+  <% include ../partials/navigation %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col l12 m12 s12">
+
+        <h1>Delete this Table?</h1>
+
+        <% include ../partials/errors %>
+
+        <form action="/admin/tables/<%= table.id %>/delete" method="post">
+
+          <p class="p-delete">
+            Table No:<br>
+            <strong><%= table.tableNumber %></strong>
+          </p>
+
+          <br>
+
+          <div class="row">
+            <div class="input-field col s6">
+              <button type="submit" class="waves-effect waves-light btn red darken-1">Delete</button>
+              <a href="/admin/menus" class="waves-effect waves-light btn white black-text">Cancel</a>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+  <% include ../partials/scripts %>
+
+</body>
+</html>

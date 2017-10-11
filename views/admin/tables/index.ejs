@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head-content %>
+</head>
+<body>
+
+  <% include ../partials/navigation %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col l12 m12 s12">
+        <h1>Tables</h1>
+        <a href="/admin/tables/add" class="waves-effect waves-light btn">Add a Table</a>
+        <br><br>
+        <% include ../partials/success %>
+        <table class="responsive-table striped bordered">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Table No.</th>
+              <th>Empty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% tables.forEach((table, index) => { %>
+
+              <tr>
+                <td><%= index + 1 %></td>
+                <td><%= table.tableNumber %></td>
+                <td>
+                  <span class="<%= table.isEmpty ? 'teal-text' : 'red-text' %>">
+                    <%= table.isEmpty ? 'Yes' : 'No' %>
+                  </span>
+                </td>
+                <td>
+                  <a href="/admin/tables/<%= table.id %>/edit" class="waves-effect waves-light btn amber darken-3"><i class="material-icons">create</i></a>
+                  <a href="/admin/tables/<%= table.id %>/delete" class="waves-effect waves-light btn red darken-3"><i class="material-icons">delete</i></a>
+                </td>
+              </tr>
+
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <% include ../partials/scripts %>
+
+</body>
+</html>

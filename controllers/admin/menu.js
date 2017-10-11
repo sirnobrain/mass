@@ -6,7 +6,7 @@ class MenuController {
 
     Model.Menu.all({
 
-      order: [ [ 'createdAt', 'DESC' ] ]
+      order: [ [ 'createdAt', 'DESC' ], [ 'updatedAt', 'DESC' ] ]
 
     }).then((menus) => {
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head-content %>
+</head>
+<body>
+
+  <% include ../partials/navigation %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col l12 m12 s12">
+
+        <h1>Edit a Table</h1>
+
+        <% include ../partials/errors %>
+
+        <form action="/admin/tables/<%= table.id %>/edit" method="post">
+
+          <div class="row">
+            <div class="input-field col s12 m12 l6">
+              <input id="tableNumber" name="tableNumber" type="text" autocomplete="off" value="<%= table.tableNumber %>" autofocus>
+              <label for="tableNumber">Table No.</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col s12 m12 l6">
+              <p>
+                <input id="isEmpty" name="isEmpty" type="checkbox" value="true" <%= table.isEmpty ? 'checked' : '' %>>
+                <label for="isEmpty">Empty</label>
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12 m12 l6">
+              <button type="submit" class="waves-effect waves-light btn">Submit</button>
+              <a href="/admin/tables" class="waves-effect waves-light btn white black-text">Cancel</a>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <% include ../partials/scripts %>
+
+</body>
+</html>

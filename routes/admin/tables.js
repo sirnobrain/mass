@@ -10,7 +10,7 @@ router.get('/add', (req, res) => {
   TableController.add(req, res);
 });
 
-router.post('/post', (req, res) => {
+router.post('/add', (req, res) => {
   TableController.create(req, res);
 });
 
