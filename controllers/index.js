@@ -7,6 +7,7 @@ class Index {
 
 		Model.Table.findAll(options)
 		.then(emptyTables => {
+			emptyTables.sort((a, b) => Number(a.tableNumber) - Number(b.tableNumber));
 			const viewData = {
 				data: emptyTables,
 				err: null,

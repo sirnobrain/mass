@@ -5,7 +5,8 @@ class Kitchen {
 	static showActiveOrders(req, res) {
 		const options = {
 			where: {isReady: false},
-			include: ['Table', 'Menu']
+			include: ['Table', 'Menu'],
+			order: [['batch', 'DESC']]
 		};
 
 		Model.Order.findAll(options)

@@ -42,7 +42,7 @@ class Table {
 		const batch = Date.now();
 		const note = req.body.note;
 		const records = [];
-		console.log(req.body);
+
 		for (let prop in reqBody) {
 			if (reqBody[prop] > 0 && prop !== 'note') {
 				let record = {
