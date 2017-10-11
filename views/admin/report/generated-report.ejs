@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head-content %>
+</head>
+<body>
+
+  <% include ../partials/navigation %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col l12 m12 s12">
+        <a href="#" onclick="history.go(-1)">&laquo; Go back</a>
+        <h1>Sales Report</h1>
+        <% if (from === to) { %>
+            <h4>
+              <%= from %>
+            </h4>
+        <% } else { %>
+            <h4>
+              <%= from %> - <%= to %>
+            </h4>
+        <% } %>
+        <p>Total: <strong>IDR <span class="numeric"><%= total %></span></strong></p>
+        <br><br>
+        <table class="responsive-table striped bordered">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Name</th>
+              <th>Qty</th>
+              <th>Price</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% orders.forEach((order, index) => { %>
+
+              <tr>
+                <td><%= index + 1 %></td>
+                <td><%= order.Menu.name %></td>
+                <td><%= order.quantity %></td>
+                <td>IDR <span class="numeric"><%= order.pricePaid %></span></td>
+                <td><%= order.createdAt.toLocaleDateString() %></td>
+              </tr>
+
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <% include ../partials/scripts %>
+
+  <% include ../partials/numeric %>
+
+
+</body>
+</html>
