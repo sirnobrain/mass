@@ -15,18 +15,39 @@ class ReportController {
 
   static generate(req, res) {
 
-    const from = new Date(req.body.from + 'GMT');
-    const to = new Date(req.body.to + 'GMT');
+    let from = new Date(req.body.from + 'GMT');
+    let fromPlusOne = new Date(req.body.from + 'GMT');
+        fromPlusOne.setDate(fromPlusOne.getDate() + 1);
+    let to = new Date(req.body.to + 'GMT');
+        to.setDate(to.getDate() + 1);
+    let whereOptions = {};
+
+    if (from.toISOString() === to.toISOString()) {
+      whereOptions.createdAt = { $gte: from, $lt: fromPlusOne }
+    } else {
+      whereOptions.createdAt = { $gte: from, $lte: to }
+    }
 
     Model.Order.findAll({
-      where: {
-        createdAt: {
-          $gte: from,
-          $lte: to,
-        }
-      }
+      include: [ Model.Menu ],
+      where: whereOptions
     }).then((orders) => {
-      res.send(orders);
+
+      let total = 0;
+
+      orders.forEach((order, index) => {
+        total += (order.pricePaid * order.quantity);
+      });
+
+      res.render('admin/report/generated-report', {
+        pageTitle: 'Generated Report',
+        orders: orders,
+        session: req.session,
+        from: req.body.from,
+        to: req.body.to,
+        total: total
+      });
+
     });
 
   }
