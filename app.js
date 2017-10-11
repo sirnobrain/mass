@@ -2,6 +2,7 @@ const express    = require('express');
 const session    = require('express-session');
 const flash      = require('express-flash');
 const bodyParser = require('body-parser');
+const path 			 = require('path');
 
 const app = express();
 
@@ -27,6 +28,9 @@ app.use(bodyParser.json());
 
 // set view engine to ejs
 app.set('view engine', 'ejs');
+
+// set static files path
+app.use(express.static(path.join(__dirname, 'public')));
 
 // routing
 app.use('/', index);
