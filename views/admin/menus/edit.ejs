@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head-content %>
+</head>
+<body>
+
+  <% include ../partials/navigation %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col l12 m12 s12">
+
+        <h1>Edit a Menu</h1>
+
+        <% include ../partials/errors %>
+
+        <form action="/admin/menus/<%= menu.id %>/edit" method="post">
+
+          <div class="row">
+            <div class="input-field col s12 m12 l6">
+              <input id="name" name="name" type="text" autocomplete="off" value="<%= menu.name %>" autofocus>
+              <label for="name">Name</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12 m12 l6">
+              <input id="description" name="description" type="text" autocomplete="off" value="<%= menu.description %>">
+              <label for="description">Description</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12 m12 l6">
+              <input id="price" name="price" type="text" autocomplete="off" value="<%= menu.price %>">
+              <label for="price">Price</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col s12 m12 l6">
+              <p>
+                <input id="isAvailable" name="isAvailable" type="checkbox" value="true" <%= menu.isAvailable ? 'checked' : '' %>>
+                <label for="isAvailable">Available</label>
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12 m12 l6">
+              <button type="submit" class="waves-effect waves-light btn">Submit</button>
+              <a href="/admin/menus" class="waves-effect waves-light btn white black-text">Cancel</a>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <% include ../partials/scripts %>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head-content %>
+</head>
+<body>
+
+  <% include ../partials/navigation %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col l12 m12 s12">
+
+        <h1>Delete this Menu?</h1>
+
+        <% include ../partials/errors %>
+        
+        <form action="/admin/menus/<%= menu.id %>/delete" method="post">
+
+          <p class="p-delete">
+            Name:<br>
+            <strong><%= menu.name %></strong>
+          </p>
+          <p class="p-delete">
+            Description:<br>
+            <strong><%= menu.description %></strong>
+          </p>
+          <p class="p-delete">
+            Price:<br>
+            <strong><%= menu.price %></strong>
+          </p>
+
+          <br>
+
+          <div class="row">
+            <div class="input-field col s6">
+              <button type="submit" class="waves-effect waves-light btn red darken-1">Delete</button>
+              <a href="/admin/menus" class="waves-effect waves-light btn white black-text">Cancel</a>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+  <% include ../partials/scripts %>
+
+</body>
+</html>
