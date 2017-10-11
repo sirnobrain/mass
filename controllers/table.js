@@ -1,6 +1,18 @@
 const Model = require('./../models');
 
 class Table {
+	static setOccupied(req, res, next) {
+		const record = {isEmpty: false};
+		const options = {where: {id: req.params.id}};
+		Model.Table.update(record, options)
+		.then(() => {
+			const redirectTo = `/table/${req.params.id}/menu`;
+			res.redirect(redirectTo);
+		})
+		.catch(err => {
+			if (err) throw err;
+		});
+	}
 	// display all available menus
 	static showMenu(req, res) {
 		const options = {where: {isAvailable: true}};
@@ -47,23 +59,22 @@ class Table {
 			}
 		}
 
-		console.log(records);
-		res.redirect('/');
+		Model.Menu.bulkCreate(records)
+		.then(() => {
+			const redirectTo = `/table/${tableId}/wait`;
 
-		// Model.Menu.bulkCreate(records)
-		// .then(() => {
-		// 	const redirectTo = `/${tableId}/table-wait`;
-
-		// 	res.redirect(redirectTo);
-		// })
-		// .catch(err => {
-		// 	if (err) throw err;
-		// });
+			res.redirect(redirectTo);
+		})
+		.catch(err => {
+			if (err) throw err;
+		});
 	}
 
 	static wait(req, res) {
 		const viewData = {
-			data: null,
+			data: {
+				tableId: req.params.id
+			},
 			err: null,
 			session: null /* selama belum ada session set to null, kalo udah req.sessionRole*/
 		}

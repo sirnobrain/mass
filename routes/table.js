@@ -3,11 +3,15 @@ const router = express.Router();
 const Table = require('./../controllers/table');
 
 router.get('/:id', (req, res) => {
+	Table.setOccupied(req, res);
+});
+
+router.get('/:id/menu', (req, res) => {
 	// query menu dan tampilkan ke view
 	Table.showMenu(req, res);
 });
 
-router.post('/:id', (req, res) => {
+router.post('/:id/menu', (req, res) => {
 	console.log('yihaw');
 	// render billing via modal/dialog box
 	// button pay pada modal trigger router ini
