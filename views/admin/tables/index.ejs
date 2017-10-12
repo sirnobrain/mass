@@ -10,11 +10,16 @@
   <div class="container">
     <div class="row">
       <div class="col l12 m12 s12">
-        <h1>Tables</h1>
-        <a href="/admin/tables/add" class="waves-effect waves-light btn">Add a Table</a>
-        <br><br>
         <% include ../partials/success %>
-        <table class="responsive-table striped bordered">
+        <div class="card material-table">
+          <div class="table-header">
+            <span class="table-title">Tables</span>
+            <div class="actions">
+              <a href="/admin/tables/add" class="waves-effect btn-flat nopadding"><i class="material-icons">add</i></a>
+              <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
+            </div>
+          </div>
+          <table id="table-datatable" class="responsive-table striped bordered">
           <thead>
             <tr>
               <th>No.</th>
@@ -43,11 +48,36 @@
             <% }) %>
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   </div>
 
   <% include ../partials/scripts %>
+  <% include ../partials/datatable-scripts %>
+
+  <script>
+    $(document).ready(function() {
+      $('#table-datatable').dataTable({
+        "oLanguage": {
+          "sStripClasses": "",
+          "sSearch": "",
+          "sSearchPlaceholder": "Enter Keywords Here",
+          "sInfo": "_START_ -_END_ of _TOTAL_",
+          "sLengthMenu": '<span>Rows per page:</span><select class="browser-default">' +
+            '<option value="10">10</option>' +
+            '<option value="20">20</option>' +
+            '<option value="30">30</option>' +
+            '<option value="40">40</option>' +
+            '<option value="50">50</option>' +
+            '<option value="-1">All</option>' +
+            '</select></div>'
+        },
+        bAutoWidth: false
+      });
+    });
+
+  </script>
 
 </body>
 </html>

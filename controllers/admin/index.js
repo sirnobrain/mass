@@ -15,7 +15,8 @@ class AdminController {
 
       counter.menus = values[0];
       counter.tables = values[1];
-      counter.users = values[2];
+      // Minus one = Minus yourself!
+      counter.users = values[2] - 1;
 
       let whereOptions = {};
       let from = new Date();
