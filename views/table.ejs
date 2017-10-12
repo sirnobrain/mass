@@ -17,7 +17,7 @@
           </div>
           <div class="card-action menu-card-flex">
           	<div class="menu-card-price">
-          		<p>IDR <span><%= menu.price %></span></p>
+          		<p>IDR <span class="numeric"><%= menu.price %></span></p>
           	</div>
           	<div class="menu-card-qty">
             	<label>Quantity</label>
@@ -27,7 +27,7 @@
         </div>
 			<%})%>
 			<!-- LOOP ENDS -->
-			
+
 				<div class="card black">
           <div class="card-content white-text" id="notes-card">
             <span class="card-title">Notes:</span>
@@ -41,3 +41,4 @@
 </div>
 
 <%- include('templates/footer.ejs') %>
+<% include admin/partials/numeric %>
