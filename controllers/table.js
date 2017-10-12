@@ -60,15 +60,19 @@ class Table {
 			}
 		}
 
-		Model.Order.bulkCreate(records)
-		.then(() => {
-			const redirectTo = `/table/${tableId}/wait`;
+		if (records.length === 0) {
+			res.redirect(`/table/${tableId}/menu`);
+		} else {
+			Model.Order.bulkCreate(records)
+			.then(() => {
+				const redirectTo = `/table/${tableId}/wait`;
 
-			res.redirect(redirectTo);
-		})
-		.catch(err => {
-			if (err) throw err;
-		});
+				res.redirect(redirectTo);
+			})
+			.catch(err => {
+				if (err) throw err;
+			});
+		}
 	}
 
 	static wait(req, res) {

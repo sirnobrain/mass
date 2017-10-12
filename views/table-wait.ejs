@@ -1,9 +1,18 @@
 <%- include('templates/header.ejs') %>
+<div class="wait-container">
+	<div class="wait-wrapper">
+		<div class="wait-content">
+			<h3>Enjoy Your Meals!</h3>
+			<br>
+			<br>
+			<a href="/table/<%= viewData.data.tableId %>">ORDER AGAIN</a>
+			<br>
+			<a href="/table/<%= viewData.data.tableId %>/leave">LEAVE</a>
+		</div>
+	</div>
+</div>
 <div class="main-container">
-	<a href="/table/<%= viewData.data.tableId %>">ORDER AGAIN</a>
-	<br>
-	<br>
-	<a href="/table/<%= viewData.data.tableId %>/leave">LEAVE</a>
+	
 </div>
 
 <%- include('templates/footer.ejs') %>

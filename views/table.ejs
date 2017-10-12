@@ -1,33 +1,41 @@
 <%- include('templates/header.ejs') %>
-<div class="main-container">
-	<div id="order-wrapper">
+<div class="table-container">
+	<div id="menu-tagline-wrapper">
+		<div id="menu-tagline">
+			<h3>Today's Menu</h3>
+		</div>
+	</div>
+	<div id="order-sheet">
+
 		<form action="/table/<%=viewData.data.tableId%>/menu" method="POST">
-			<table>
-				<thead>
-					<tr>
-						<th>Menu</th>
-						<th>Price</th>
-						<th>Qty</th>
-					</tr>
-				</thead>
-				<tbody>
-					<%viewData.data.availableMenus.forEach(menu => {%>
-						<tr>
-							<td><%= menu.name %></td>
-							<td><%= menu.price %></td>
-							<!-- quick fix to get pricePaid -->
-							<td><input type="number" name="<%= menu.id + '-' + menu.price %>" min="0" max="100"></td>
-						</tr>
-					<%})%>
-				</tbody>
-			</table>
-			<br>
-			<br>
-			Note
-			<input type="text" name="note">
-			<br>
-			<br>
-			<input type="submit" value="Order">
+			<!-- START LOOPING -->
+			<%viewData.data.availableMenus.forEach(menu => {%>
+				<div class="card black">
+          <div class="card-content white-text">
+            <span class="card-title"><%= menu.name %></span>
+            <p><%= menu.description %></p>
+          </div>
+          <div class="card-action menu-card-flex">
+          	<div class="menu-card-price">
+          		<p>IDR <span><%= menu.price %></span></p>
+          	</div>
+          	<div class="menu-card-qty">
+            	<label>Quantity</label>
+              <input type="number" name="<%= menu.id + '-' + menu.price %>" min="0" max="100">
+            </div>
+          </div>
+        </div>
+			<%})%>
+			<!-- LOOP ENDS -->
+			
+				<div class="card black">
+          <div class="card-content white-text" id="notes-card">
+            <span class="card-title">Notes:</span>
+            <input type="text" name="note">
+            <input type="submit" value="ORDER">
+          </div>
+        </div>
+
 		</form>
 	</div>
 </div>

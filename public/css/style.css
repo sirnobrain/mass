@@ -1,0 +1,344 @@
+body {
+	font-size: 16px;
+	font-weight: 200;
+	letter-spacing: 1.1px;
+}
+/*
+INDEX
+*/
+.index-container {
+	background-image: url('https://www.foodiesfeed.com/wp-content/uploads/2015/03/pasta-fusilli-prepared-for-cooking.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 64px 128px;
+	min-height: 100vh;
+	display: flex;
+}
+
+#index-wrapper {
+	display: flex;
+	width: 100%;
+}
+
+#tagline {
+	background: rgba(0, 0, 0, 0.95);
+	padding: 0 32px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	color: #fff;
+	border-top-left-radius: 16px;
+	border-bottom-left-radius: 16px;
+}
+
+#tagline h1, #tagline p {
+	width: 100%;
+	font-weight: 200;
+}
+
+#tagline h1 {
+	color: #ff6f00;
+	letter-spacing: 2px;
+}
+
+#tagline p {
+	font-size: 16px;
+	text-align: justify;
+}
+
+#tagline h2 {
+	font-weight: bold;
+	letter-spacing: 1.1px;
+	font-size: 20px;
+	text-align: right;
+	color: #ff6f00;
+}
+
+#tagline h2 i {
+	color: #76ff03;
+}
+
+#table-list {
+	background: rgba(0, 0, 0, 0.88);
+	padding: 32px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.table-btn {
+	height: 7.5vw;
+	width: 7.5vw;
+	margin: 24px 0;
+	border-radius: 100%;
+	border: 3.5px solid #ff6f00;
+	background: transparent;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ff6f00;
+	font-size: 22px;
+	font-weight: bold;
+	letter-spacing: 1.1px;
+}
+
+/*
+TABLE
+*/
+
+.table-container {
+	min-height: 100vh;
+	background: #000;
+	color: #fff;
+}
+
+#menu-tagline-wrapper {
+	background-image: url('https://i.pinimg.com/736x/79/9d/59/799d59a81418d7fae32bb7254006b9de--gluten-free-christmas-cookies-linzer-cookies.jpg');
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+	width: 33%;
+}
+
+#menu-tagline {
+	background: rgba(0, 0, 0, 0.85);
+	height: 100%;
+	color: #ff6f00;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 32px;
+
+}
+
+#menu-tagline h3 {
+	font-size: 36px;
+	font-weight: 200;
+	letter-spacing: 1.5px;
+}
+
+#order-sheet {
+	width: 67%;
+	margin-left: 33%;
+	padding: 32px 64px 128px 64px;
+}
+
+.menu-card-flex {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.menu-card-price {
+	font-size: 10px;
+	width: 70%;
+}
+.menu-card-price span {
+	font-size: 28px;
+	color: #ff6f00;
+}
+
+.menu-card-qty {
+	width: 30%;
+}
+
+#order-sheet .card {
+	border-bottom: 2px double #666;
+}
+#order-sheet .card:last-child {
+	border-bottom: none;
+}
+
+#order-sheet input[type=number]:focus {
+	border-bottom: 1px solid #ff6f00!important;
+  box-shadow: 0 1px 0 0 #000!important;
+}
+
+#order-sheet .card-title {
+	color: #ff6f00;
+	font-size: 24px;
+	letter-spacing: 1.8px;
+}
+
+#order-sheet input[type=text]:focus {
+	border-bottom: 1px solid #ff6f00!important;
+  box-shadow: 0 1px 0 0 #000!important;
+}
+
+#order-sheet input[type=submit] {
+	width: 100%;
+	border: none;
+	border: 2px solid #ff6f00;
+	background: transparent;
+	padding: 24px 36px;
+	float: right;
+	color: #ff6f00;
+}
+#notes-card:after {
+	content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+/*
+WAIT
+*/
+.wait-container {
+	width: 100%;
+	min-height: 100vh;
+	background: url('https://www.foodiesfeed.com/wp-content/uploads/2015/09/summer-barbeque-feast.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.wait-wrapper {
+	background: rgba(0, 0, 0, 0.9);
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.wait-content {
+	color: #fff;
+	text-align: center;
+}
+.wait-wrapper a {
+	padding: 12px 36px;
+	border: 2px solid #ff6f00;
+	color: #fff;
+	display: block;
+	text-align: center;
+}
+
+/*
+KITCHEN
+*/
+
+.kitchen-container {
+	width: 100%;
+	min-height: 100vh;
+}
+
+#kitchen-tagline-wrapper {
+	width: 33%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-image: url('https://static1.squarespace.com/static/553d92dbe4b0955fe53b9d78/t/5945f31e1b631b7edc1eb66e/1497756462840/Candied+Lemon+Peel+%2B+Toasted+Coconut+Ice+Cream+%28Dairy-Free%29+%2F%2F+Sponsored+By+Cook+Flavoring+Company+%7C+All+Purpose+Flour+Child');
+	background-size: cover;
+}
+
+#kitchen-tagline {
+	background: rgba(255, 255, 255, 0.86);
+	height: 100vh;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+#kitchen-title {
+	text-align: center;
+	color: #00897b;
+	letter-spacing: 4px;
+	font-weight: 200;
+}
+
+#kitchen-tagline p {
+	border-top: 2px double #00897b;
+	border-bottom: 2px double #00897b;
+	padding: 4px;
+	color: inherit;
+	text-align: center;
+}
+
+#pending-orders-wrapper {
+	margin-left: 33%;
+	padding: 32px 64px;
+	width: 67%;
+	min-height: 100vh;
+}
+
+#pending-orders-wrapper .card {
+	margin-bottom: 32px;
+}
+
+#pending-orders-wrapper .card-content {
+	color: #222!important;
+}
+
+#pending-orders-wrapper .card-action {
+	border-color: #a7ffeb;
+	background: #00897b;
+	text-align: right;
+}
+
+#pending-orders-wrapper .card-action a {
+	color: #fff;
+	font-weight: 400;
+	letter-spacing: 1.5px;
+}
+.card-content i {
+	color: #64ffda;
+}
+.batch-info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;	
+	border-bottom: 1px solid #cdcdcd;
+	padding-bottom: 16px;
+	margin-bottom: 16px;
+}
+.batch-info p {
+	font-size: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #64ffda!important;
+}
+.batch-info p span {
+	color: #00897b!important;
+}
+
+.batch-info-title {
+	font-size: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #64ffda!important;
+}
+
+.batch-order {
+	border-bottom: 1px solid #cdcdcd;
+	margin-bottom: 16px;
+	padding-bottom: 16px;
+}
+
+.menu-ordered {
+	letter-spacing: 2.5px;
+}
+
+.menu-ordered {
+
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+.menu-ordered>span {
+	color: #ff6f00;
+	font-weight: 300;
+}
+
+.card-action input[type=submit] {
+	background: transparent;
+	border: none;
+	color: #fff;
+	letter-spacing: 2px;
+	font-weight: 400;
+}
