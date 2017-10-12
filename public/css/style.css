@@ -7,7 +7,7 @@ body {
 INDEX
 */
 .index-container {
-	background-image: url('https://www.foodiesfeed.com/wp-content/uploads/2015/03/pasta-fusilli-prepared-for-cooking.jpg');
+	background-image: url('/public/images/index-bg.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: 64px 128px;
@@ -93,7 +93,7 @@ TABLE
 }
 
 #menu-tagline-wrapper {
-	background-image: url('https://i.pinimg.com/736x/79/9d/59/799d59a81418d7fae32bb7254006b9de--gluten-free-christmas-cookies-linzer-cookies.jpg');
+	background-image: url('/public/images/menu-bg.jpg');
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -192,7 +192,7 @@ WAIT
 .wait-container {
 	width: 100%;
 	min-height: 100vh;
-	background: url('https://www.foodiesfeed.com/wp-content/uploads/2015/09/summer-barbeque-feast.jpg');
+	background: url('/public/images/wait-bg.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -232,7 +232,7 @@ KITCHEN
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-image: url('https://static1.squarespace.com/static/553d92dbe4b0955fe53b9d78/t/5945f31e1b631b7edc1eb66e/1497756462840/Candied+Lemon+Peel+%2B+Toasted+Coconut+Ice+Cream+%28Dairy-Free%29+%2F%2F+Sponsored+By+Cook+Flavoring+Company+%7C+All+Purpose+Flour+Child');
+	background-image: url('/public/images/kitchen-bg.jpg');
 	background-size: cover;
 }
 
