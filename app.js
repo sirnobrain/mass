@@ -2,7 +2,7 @@ const express    = require('express');
 const session    = require('express-session');
 const flash      = require('express-flash');
 const bodyParser = require('body-parser');
-const path 			 = require('path');
+// const path 			 = require('path');
 
 const app = express();
 
@@ -33,7 +33,7 @@ app.use('/public', express.static(__dirname + '/public/'));
 app.set('view engine', 'ejs');
 
 // set static files path
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 // routing
 app.use('/', index);
@@ -41,7 +41,7 @@ app.use('/table', table);
 app.use('/kitchen', kitchen);
 app.use('/admin', admin);
 
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404).sendFile(__dirname + '/views/404.html')
 })
 
