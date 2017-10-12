@@ -1,14 +1,31 @@
 <%- include('templates/header.ejs') %>
-	<div clas="main-container">
-		<div id="table-availability-wrapper">
-			Select table
-			<div id="table-availability">
+
+	<div class="index-container">
+		<div class="row" id="index-wrapper">
+			<div class="col s12 l5" id="tagline">
+				<div>
+
+					<h1><i class="large material-icons">child_friendly</i> <br>Spicy Sunday</h1>
+					<p>
+					Whatever your problem is, the answer is in our plate! <br>Come on in!
+					</p>
+					<h2>
+						SELECT TABLES<br>
+						<i class="small material-icons">fast_forward</i>
+						<i class="small material-icons">fast_forward</i>
+						<i class="small material-icons">fast_forward</i>
+					</h2>
+				</div>
+			</div>
+			<div class="col s12 l7" id="table-list">
+				<div class="row">
 					<%viewData.data.forEach(table => {%>
-					<a class="table-button" href="/table/<%=table.id%>">
-						<%=table.tableNumber%>
-					</a>
+						<a href="/table/<%=table.id%>" class="col table-btn offset-s1 waves-effect waves-red"><%=table.tableNumber%></a>
 					<%})%>
+				</div>
+				
 			</div>
 		</div>
 	</div>
+
 <%- include('templates/footer.ejs') %>
