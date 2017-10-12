@@ -1,6 +1,8 @@
 const Model = require('../../models');
 const bcrypt = require('bcrypt');
 
+const authenticate = require('../../helpers/authenticate');
+
 class AdminController {
 
   static index(req, res) {
@@ -97,6 +99,76 @@ class AdminController {
   static logout(req, res) {
     req.session.destroy();
     res.redirect('/admin');
+  }
+
+  static changePasswordIndex(req, res) {
+    if (authenticate(req.session)) {
+      res.render('admin/change-password', {
+        session: req.session
+      });
+    } else {
+      res.redirect('/admin');
+    }
+  }
+
+  static changePasswordPost(req, res) {
+    if (authenticate(req.session)) {
+
+      Model.User.findOne({
+        where: { username: req.session.username }
+      }).then((user) => {
+
+        // Check old password
+        if (bcrypt.compareSync(req.body.old_password, user.password)) {
+
+          if (req.body.confirm_new_password === req.body.new_password) {
+
+            Model.User.update(
+              {
+                password: req.body.new_password
+              },
+              {
+                where: { username: req.session.username },
+                individualHooks: true
+              }
+            ).then(() => {
+
+              res.redirect('/admin');
+
+            }).catch((err) => {
+
+              res.render('admin/change-password', {
+                errors: err.errors,
+                session: req.session
+              });
+
+            });
+
+          } else {
+
+            req.flash('errors', [{ message: 'Confirmation failed, please try again' }])
+
+            res.render('admin/change-password', {
+              session: req.session
+            });
+
+          }
+
+        } else {
+
+          req.flash('errors', [{ message: 'Old password is wrong, please try again' }])
+
+          res.render('admin/change-password', {
+            session: req.session
+          });
+
+        }
+
+      });
+
+    } else {
+      res.redirect('/admin');
+    }
   }
 
 }

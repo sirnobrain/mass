@@ -41,5 +41,9 @@ app.use('/table', table);
 app.use('/kitchen', kitchen);
 app.use('/admin', admin);
 
+app.use((req, res, next) => {
+  res.status(404).sendFile(__dirname + '/views/404.html')
+})
+
 // listening on environment port or 3000
 app.listen(process.env.PORT || '3000');

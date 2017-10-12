@@ -33,4 +33,12 @@ router.get('/logout', (req, res) => {
   AdminController.logout(req, res);
 });
 
+router.get('/change-password', (req, res) => {
+  AdminController.changePasswordIndex(req, res);
+});
+
+router.post('/change-password', (req, res) => {
+  AdminController.changePasswordPost(req, res)
+});
+
 module.exports = router;
