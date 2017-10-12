@@ -39,6 +39,18 @@ module.exports = {
         isEmpty: true,
         createdAt: new Date(),
         updatedAt: new Date()
+      },
+      {
+        tableNumber: '007',
+        isEmpty: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        tableNumber: '008',
+        isEmpty: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ], {});
 
